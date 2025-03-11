@@ -3,9 +3,24 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
         <title>Node.js File Server</title>
     </head>
     <body>
         <h1>Welcome to the Node.js File Server</h1>
+
+        <div class="container">
+            <form class="form">
+              <div class="file-upload-wrapper" data-text="Select your file!">
+                <input name="file-upload-field" type="file" class="file-upload-field" value="">
+              </div>
+            </form>
+          </div>
     </body>
+    <script>
+        $("form").on("change", ".file-upload-field", function(){ 
+            $(this).parent(".file-upload-wrapper").attr("data-text",
+            $(this).val().replace(/.*(\/|\\)/, '') );
+        });
+    </script>
 </html>
